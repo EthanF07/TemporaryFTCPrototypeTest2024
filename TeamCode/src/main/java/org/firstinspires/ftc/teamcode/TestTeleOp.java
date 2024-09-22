@@ -7,16 +7,19 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 public class TestTeleOp extends OpMode {
 
-    final PayloadPrototyping17063 payloadPrototyping17063 = new PayloadPrototyping17063();
+    private PayloadPrototyping17063 payloadPrototyping17063;
 
+    @Override
     public void init() {
-        payloadPrototyping17063.init(this, telemetry);
+        payloadPrototyping17063 = new PayloadPrototyping17063(this, telemetry);
     }
 
+    @Override
     public void loop() {
         payloadPrototyping17063.operate(gamepad1, telemetry);
     }
 
+    @Override
     public void stop() {
         payloadPrototyping17063.shutdown();
     }
